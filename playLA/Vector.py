@@ -28,6 +28,11 @@ class Vector:
             "Error in subtracting, Length of vectors must be same."
         return Vector([a - b for a, b in zip(self, other)])
 
+    def dot(self, other):
+        assert len(self) == len(other), \
+            "Error in dot product, Lenght os vectors must be same. "
+        return sum(a * b for a, b in zip(self, other))
+
     def __mul__(self, k):
         return Vector([k * e for e in self])
 
