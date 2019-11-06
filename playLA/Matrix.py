@@ -8,6 +8,9 @@ class Matrix:
     @classmethod
     def zero(cls, r, c):
         return cls([[0] * c for _ in range(r)])
+    
+    def T(self):
+        return Matrix([[e for e in self.col_vector(i)] for i in range(self.col_num())])
 
     def __add__(self, another):
         assert self.shape() == another.shape(), \
